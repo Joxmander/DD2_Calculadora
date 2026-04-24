@@ -1,0 +1,36 @@
+# ModelSim / Questa
+work/
+.modelsim_work/
+modelsim.ini
+transcript
+*.wlf
+*.vcd
+*.log
+*.jou
+*.history
+*.sim
+*.mpf
+*.mpf.*
+*.mpf.bak
+
+# Editor y workspace
+.vscode/
+*.code-workspace
+
+# Temporales del sistema y editor
+*.swp
+*.swo
+*.tmp
+Thumbs.db
+.DS_Store
+
+# Binarios y objetos
+*.o
+*.exe
+*.dll
+
+# Salidas de síntesis / reportes
+*.rpt
+*.csv
+# Archivos de proyecto de ModelSim
+*.mti
