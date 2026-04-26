@@ -1,7 +1,7 @@
 -- tb_BinarioToBCD.vhd
 -- Banco de pruebas para verificar el conversor de Binario a BCD.
--- Genera el reloj, aplica el reset y prueba varios valores l韒ite 
--- utilizando sentencias 'assert' para la autoverificaci髇.
+-- Genera el reloj, aplica el reset y prueba varios valores l铆mite 
+-- utilizando sentencias 'assert' para la autoverificaci贸n.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -13,7 +13,7 @@ end tb_BinarioToBCD;
 
 architecture test of tb_BinarioToBCD is
 
-    -- 1. Declaraci髇 del componente a probar (Device Under Test - DUT)
+    -- 1. Declaraci贸n del componente a probar (Device Under Test - DUT)
     component BinarioToBCD
         port(
             clk      : in  std_logic;
@@ -25,7 +25,7 @@ architecture test of tb_BinarioToBCD is
         );
     end component;
 
-    -- 2. Se馻les internas para conectar al componente
+    -- 2. Se帽ales internas para conectar al componente
     signal clk     : std_logic := '0';
     signal nRst    : std_logic := '0';
     signal inicio  : std_logic := '0';
@@ -38,7 +38,7 @@ architecture test of tb_BinarioToBCD is
 
 begin
 
-    -- 3. Instanciaci髇 del DUT
+    -- 3. Instanciaci贸n del DUT
     DUT: BinarioToBCD port map (
         clk      => clk,
         nRst     => nRst,
@@ -48,20 +48,20 @@ begin
         fin      => fin
     );
 
-    -- 4. Generaci髇 del reloj continuo
+    -- 4. Generaci贸n del reloj continuo
     clk <= not clk after T_CLK / 2;
 
-    -- 5. Proceso de est韒ulos
+    -- 5. Proceso de est铆mulos
     process
     begin
-        -- Aplicamos el Reset as韓crono
+        -- Aplicamos el Reset as铆ncrono
         nRst <= '0';
         wait for 2 * T_CLK;
         nRst <= '1';
         wait for 2 * T_CLK;
 
         -----------------------------------------------------------
-        -- PRUEBA 1: Un n鷐ero peque駉 (15 en decimal)
+        -- PRUEBA 1: Un n煤mero peque帽o (15 en decimal)
         -- 15 en hexadecimal es 0x0000F
         -- En BCD debe ser 0000 0000 0000 0000 0001 0101 (x"000015")
         -----------------------------------------------------------
@@ -72,7 +72,7 @@ begin
         
         wait until fin = '1';         -- Esperamos a que la FSM avise de que ha terminado
         
-        -- Autoverificaci髇
+        -- Autoverificaci贸n
         assert num_bcd = x"000015" 
             report "ERROR en Prueba 1: El resultado de 15 es incorrecto." 
             severity error;
@@ -80,7 +80,7 @@ begin
         wait for 5 * T_CLK; -- Pausa visual en el cronograma
 
         -----------------------------------------------------------
-        -- PRUEBA 2: Un n鷐ero intermedio (2026 en decimal, por vuestro curso)
+        -- PRUEBA 2: Un n煤mero intermedio (2026 en decimal, por vuestro curso)
         -- 2026 en hexadecimal es 0x007EA
         -- En BCD debe ser x"002026"
         -----------------------------------------------------------
@@ -98,7 +98,7 @@ begin
         wait for 5 * T_CLK;
 
         -----------------------------------------------------------
-        -- PRUEBA 3: El n鷐ero M罼IMO posible (999 * 999 = 998001)
+        -- PRUEBA 3: El n煤mero M脕XIMO posible (999 * 999 = 998001)
         -- 998001 en hexadecimal es 0xF3A71
         -- En BCD debe ser x"998001"
         -----------------------------------------------------------
@@ -116,12 +116,12 @@ begin
         wait for 10 * T_CLK;
 
         -----------------------------------------------------------
-        -- FIN DE LA SIMULACI覰
+        -- FIN DE LA SIMULACI脫N
         -----------------------------------------------------------
         report "TEST BENCH FINALIZADO. Si no hay errores arriba, tu conversor funciona PERFECTAMENTE." 
             severity note;
             
-        wait; -- Detenemos el proceso de est韒ulos para que no se repita en bucle
+        wait; -- Detenemos el proceso de est铆mulos para que no se repita en bucle
     end process;
 
 end test;
