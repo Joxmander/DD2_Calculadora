@@ -25,11 +25,9 @@ architecture rtl of SumadorBCD_1Digito is
     signal suma_temp : std_logic_vector(4 downto 0);
 begin
     
-    -- 1. Asignación concurrente (FUERA del proceso)
     -- Se actualiza instantáneamente cuando A, B o cin cambian.
     suma_temp <= ('0' & A) + ('0' & B) + ("0000" & cin);
     
-    -- 2. El proceso AHORA 'escucha' a suma_temp
     process(suma_temp)
     begin
         -- Ajuste BCD
