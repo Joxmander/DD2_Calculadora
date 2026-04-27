@@ -66,7 +66,7 @@ begin
 	-- si el numero es positivo se queda igual		     --> mag2
 	-- si el numero es negativo, se niegan los bits y se suma 1  --> (not mag2) + 1
 
-   process
+   process (clk, nRst)
    begin
 
 	if nRst = '0' then
