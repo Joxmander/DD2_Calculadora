@@ -1,0 +1,221 @@
+-- Fichero test_RutaDeDatos.vhd
+-- Banco de pruebas COMPLETO para la unidad funcional (Ruta de Datos)
+--
+-- Descripción de las pruebas:
+-- 1. Reset: Comprobar limpieza de registros.
+-- 2. Suma basica: 125 + 250 = 375.
+-- 3. Resta con signo negativo: 100 - 150 = -50.
+-- 4. Multiplicacion basica: 12 * 10 = 120.
+-- 5. Cruce por cero (Suma): -50 + 80 = +30.
+-- 6. Multiplicacion de negativos: -15 * -20 = +300.
+-- 7. Multiplicacion por cero: -999 * 0 = 0 (Comprobando que no sale -0).
+-- 8. Límite maximo absoluto: 999 * 999 = 998001.
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity test_RutaDeDatos is
+end entity;
+
+architecture test of test_RutaDeDatos is
+
+    -- Señales de test
+    signal clk           : std_logic;
+    signal nRst          : std_logic;
+    signal inicio_calc   : std_logic := '0';
+    signal sel_op        : std_logic_vector(1 downto 0) := "00";
+    signal op1_bcd       : std_logic_vector(11 downto 0) := (others => '0');
+    signal op1_sgn       : std_logic := '0';
+    signal op2_bcd       : std_logic_vector(11 downto 0) := (others => '0');
+    signal op2_sgn       : std_logic := '0';
+    
+    signal resultado_bcd : std_logic_vector(23 downto 0);
+    signal signo_res     : std_logic;
+    signal error_res     : std_logic;
+    signal fin_calc      : std_logic;
+
+    constant Tclk : time := 20 ns;
+
+begin
+
+    -- Reloj del sistema
+    process
+    begin
+        clk <= '0';
+        wait for Tclk/2;
+        clk <= '1';
+        wait for Tclk/2;
+    end process;
+
+    -- Instancia de la unidad a probar
+    dut: entity work.RutaDeDatos(estructural)
+        port map(
+            clk           => clk,
+            nRst          => nRst,
+            inicio_calc   => inicio_calc,
+            sel_op        => sel_op,
+            op1_bcd       => op1_bcd,
+            op1_sgn       => op1_sgn,
+            op2_bcd       => op2_bcd,
+            op2_sgn       => op2_sgn,
+            resultado_bcd => resultado_bcd,
+            signo_res     => signo_res,
+            error_res     => error_res,
+            fin_calc      => fin_calc
+        );
+
+    -- Proceso de estímulos
+    process
+    begin
+        -- =======================================================
+        -- TEST 1: RESET
+        -- =======================================================
+        nRst <= '0';
+        wait for 2 * Tclk;
+        nRst <= '1';
+        wait until clk'event and clk = '1';
+
+        -- =======================================================
+        -- TEST 2: Suma (125 + 250 = 375)
+        -- =======================================================
+        op1_bcd <= x"125"; op1_sgn <= '0';
+        op2_bcd <= x"250"; op2_sgn <= '0';
+        sel_op  <= "00"; -- Suma
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000375" and signo_res = '0'
+            report "Error Test 2: La suma 125+250 ha fallado"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 3: Resta negativa (100 - 150 = -50)
+        -- =======================================================
+        op1_bcd <= x"100"; op1_sgn <= '0';
+        op2_bcd <= x"150"; op2_sgn <= '0';
+        sel_op  <= "01"; -- Resta
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000050" and signo_res = '1'
+            report "Error Test 3: La resta 100-150 ha fallado"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 4: Multiplicación (12 * 10 = 120)
+        -- =======================================================
+        op1_bcd <= x"012"; op1_sgn <= '0';
+        op2_bcd <= x"010"; op2_sgn <= '0';
+        sel_op  <= "10"; -- Multiplicación
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000120" and signo_res = '0'
+            report "Error Test 4: La multiplicacion 12*10 ha fallado"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 5: Cruce por cero (-50 + 80 = +30)
+        -- =======================================================
+        op1_bcd <= x"050"; op1_sgn <= '1'; -- Menos 50
+        op2_bcd <= x"080"; op2_sgn <= '0'; -- Mas 80
+        sel_op  <= "00"; -- Suma
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000030" and signo_res = '0'
+            report "Error Test 5: La suma -50+80 ha fallado"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 6: Multiplicación de negativos (-15 * -20 = +300)
+        -- =======================================================
+        op1_bcd <= x"015"; op1_sgn <= '1'; -- Menos 15
+        op2_bcd <= x"020"; op2_sgn <= '1'; -- Menos 20
+        sel_op  <= "10"; -- Multiplicación
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000300" and signo_res = '0'
+            report "Error Test 6: La multiplicacion -15 * -20 ha fallado"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 7: Multiplicación por cero (-999 * 0 = 0)
+        -- =======================================================
+        op1_bcd <= x"999"; op1_sgn <= '1';
+        op2_bcd <= x"000"; op2_sgn <= '0';
+        sel_op  <= "10"; -- Multiplicación
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"000000" and signo_res = '0'
+            report "Error Test 7: Multiplicar por cero dio error o arrastro el signo"
+            severity error;
+        wait for 5 * Tclk;
+
+        -- =======================================================
+        -- TEST 8: Límite máximo (999 * 999 = 998001)
+        -- =======================================================
+        op1_bcd <= x"999"; op1_sgn <= '0';
+        op2_bcd <= x"999"; op2_sgn <= '0';
+        sel_op  <= "10"; -- Multiplicación
+        
+        wait until clk'event and clk = '1';
+        inicio_calc <= '1';
+        wait until clk'event and clk = '1';
+        inicio_calc <= '0';
+
+        wait until fin_calc = '1';
+        
+        assert resultado_bcd = x"998001" and signo_res = '0' and error_res = '0'
+            report "Error Test 8: El limite maximo de 998001 no se calculo correctamente"
+            severity error;
+        wait for 10 * Tclk;
+
+        -- =======================================================
+        -- FIN DE LA SIMULACIÓN
+        -- =======================================================
+        assert false
+            report "TEST SUPERADO"
+            severity failure;
+
+    end process;
+
+end test;
