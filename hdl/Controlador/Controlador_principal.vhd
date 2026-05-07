@@ -59,10 +59,14 @@ begin
 		reg_op1 <= (others => '0');
 		reg_op2 <= (others => '0');
 		reg_resultado  <= (others => '0');
-		estado <= OP1;
+		
 		op1_sgn_reg <= '0';
 		op2_sgn_reg <= '0';
 		inicio_cal <= '0';
+	if tecla_pulsada = '1' then
+		estado <= OP1;
+	end if;
+		
 		
 
 	   when OP1 =>
@@ -110,8 +114,20 @@ end if;
 			reg_resultado <= num_bcd;
 			inicio_cal <= '0';
 			reg_pres <= "10";
-			if tecla_pulsada = '1' and fin_calculo = '1' then
-				estado <= OP1;
+			 if fin_calculo = '1' then
+				reg_op1 <= (others => '0'); 
+				reg_op2 <= (others => '0');
+				op1_sgn_reg <= '0';
+				op2_sgn_reg <= '0';
+				if  tecla_pulsada = '1' then
+					if (tecla >= X"0" and tecla <= X"9") then 
+--						reg_op1 <= reg_op1(7 downto 0) & valor; 
+
+						estado <= OP1;
+					else
+						estado <= STOP;
+					end if;
+				end if;
 			end if;
 				
 		
@@ -134,9 +150,9 @@ end process;
 		if tecla_pulsada = '1' then
 			if tecla = X"A" then
 				reg_OP <= "00";
-			elsif tecla <= X"D" then
+			elsif tecla = X"D" then
 				reg_OP <= "01";
-			elsif tecla <= X"E" then
+			elsif tecla = X"E" then
 				reg_OP <= "10";
 			else
 				  null;
