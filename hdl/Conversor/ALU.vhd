@@ -9,7 +9,7 @@ entity alu_calc is
         OP      : in  std_logic_vector(1 downto 0);
         op1_sgn : in  std_logic;
         op2_sgn : in  std_logic;
-        Res     : out std_logic_vector(11 downto 0); -- 12 bits (según BinarioToBCD)
+        Res     : out std_logic_vector(19 downto 0); -- 12 bits (según BinarioToBCD)
         Sign    : out std_logic;                     -- '1' si es negativo
         Err     : out std_logic                      -- '1' si Res > 999
     );
@@ -100,6 +100,6 @@ begin
 
     -- Errores y salida
     Err <= '1' when (res_int > 999) else '0';
-    Res <= res_int(11 downto 0);
+    Res <= res_int(19 downto 0);
     
 end architecture;
