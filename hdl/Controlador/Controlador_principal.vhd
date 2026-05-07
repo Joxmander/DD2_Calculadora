@@ -13,9 +13,12 @@ port(
 	inicio_cal: buffer std_logic;
 	fin_calculo: in std_logic;
 	
-	num_bcd  : in std_logic_vector(23 downto 0);
-	res_bcd  : buffer std_logic_vector(23 downto 0);
-	
+	num_bcd_in  : in std_logic_vector(23 downto 0);
+	num_bcd_out  : buffer std_logic_vector(23 downto 0);
+	res_sgn_in:   in std_logic;
+	res_sgn_out:   buffer std_logic;
+
+
 	op1_sgn: buffer std_logic;
 	op2_sgn: buffer std_logic;
 
@@ -27,12 +30,12 @@ port(
 end entity;
 
 architecture rtl of controlador_principal is
-signal op1_sgn_reg, op2_sgn_reg : std_logic;
+signal op1_sgn_reg, op2_sgn_reg,res_sgn : std_logic;
 signal valor:  std_logic_vector(3 downto 0);
 signal reg_op1, reg_op2:   std_logic_vector(11 downto 0); 
 signal reg_OP: std_logic_vector(1 downto 0); 
 signal reg_pres : std_logic_vector (1 downto 0);
-signal reg_resultado:std_logic_vector(23 downto 0);
+signal num_bcd:std_logic_vector(23 downto 0);
 type estado_t is (STOP, OP1,OP2,RES);
 
   signal estado : estado_t;
@@ -48,8 +51,8 @@ begin
 		estado <= STOP;
 		op1_sgn_reg <= '0';
 		op2_sgn_reg <= '0';
-		inicio_cal <= '0';
-		res_bcd  <= (others => '0');
+		res_sgn <= '0';
+		num_bcd <= (others => '0');
 		
 		
  	elsif clk'event and clk = '1' then
@@ -58,11 +61,13 @@ begin
 	    when STOP =>
 		reg_op1 <= (others => '0');
 		reg_op2 <= (others => '0');
-		reg_resultado  <= (others => '0');
+		
 		
 		op1_sgn_reg <= '0';
 		op2_sgn_reg <= '0';
 		inicio_cal <= '0';
+		res_sgn <= '0';
+		num_bcd <= (others => '0');
 	if tecla_pulsada = '1' then
 		estado <= OP1;
 	end if;
@@ -74,7 +79,8 @@ begin
 		op2_sgn_reg <= '0';
 		reg_op2 <= (others => '0');
 		inicio_cal <= '0';
-		reg_resultado  <= (others => '0');
+		res_sgn <= '0';
+		num_bcd <= (others => '0');
 		
 
 	if tecla_pulsada = '1'  then
@@ -82,7 +88,7 @@ begin
 		if (tecla >= X"0" and tecla <= X"9")  then
 			if reg_op1 = X"0" and tecla = X"0" then
 			   reg_op1 <= (others => '0');
-			elsif reg_op1 <= X"999" then 
+			elsif (reg_op1 & valor) <= X"999" then 
 			   reg_op1 <= reg_op1(7 downto 0) & valor;
 			end if;
 		elsif tecla = X"C" then
@@ -98,7 +104,7 @@ begin
 			if (tecla >= X"0" and tecla <= X"9") then
 				if reg_op2 =  X"0" and tecla = X"0" then
 			   		reg_op2 <= (others => '0');
-				elsif reg_op2 <= X"999" then 
+				elsif (reg_op2 & valor) <= X"999" then 
 			   		reg_op2 <= reg_op2(7 downto 0) & valor;
 			end if;
 		elsif tecla = X"C" then
@@ -111,15 +117,18 @@ end if;
 
 		when RES => 
 
-			reg_resultado <= num_bcd;
+			
 			inicio_cal <= '0';
 			reg_pres <= "10";
 			 if fin_calculo = '1' then
+				num_bcd <= num_bcd_in;
+				res_sgn <= res_sgn_in;
 				reg_op1 <= (others => '0'); 
 				reg_op2 <= (others => '0');
 				op1_sgn_reg <= '0';
 				op2_sgn_reg <= '0';
-				if  tecla_pulsada = '1' then
+				
+				elsif  tecla_pulsada = '1' then
 					if (tecla >= X"0" and tecla <= X"9") then 
 --						reg_op1 <= reg_op1(7 downto 0) & valor; 
 
@@ -128,7 +137,7 @@ end if;
 						estado <= STOP;
 					end if;
 				end if;
-			end if;
+			
 				
 		
 				
@@ -186,7 +195,10 @@ process(tecla) --Valores a BCD
 --enlazamos las señales
 OP <= reg_OP;
 pres <= reg_pres;
-res_bcd <= reg_resultado;
+
+
+num_bcd_out <= num_bcd;
+res_sgn_out <= res_sgn;
 
 op1_sgn <= op1_sgn_reg ;
 op2_sgn <= op2_sgn_reg ;

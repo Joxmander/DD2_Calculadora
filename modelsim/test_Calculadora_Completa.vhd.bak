@@ -1,0 +1,169 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity test_Calculadora_Completa is
+end entity;
+
+architecture tb of test_Calculadora_Completa is
+    constant CLK_PERIOD : time := 20 ns;
+
+    signal clk           : std_logic := '0';
+    signal nRst          : std_logic := '0';
+    signal tecla         : std_logic_vector(3 downto 0) := (others => '0');
+    signal tecla_pulsada : std_logic := '0';
+
+    signal num_bcd_out   : std_logic_vector(23 downto 0);
+    signal res_sgn_out   : std_logic;
+    signal err_out       : std_logic;
+    signal pres_out      : std_logic_vector(1 downto 0);
+
+    function to_digit(d : integer) return std_logic_vector is
+    begin
+        return std_logic_vector(to_unsigned(d, 4));
+    end function;
+
+    function bcd_from_int(n : integer) return std_logic_vector is
+        variable x    : integer := n;
+        variable d0,d1,d2,d3,d4,d5 : integer := 0;
+        variable res  : std_logic_vector(23 downto 0);
+    begin
+        if x < 0 then
+            x := -x;
+        end if;
+
+        d0 := x mod 10; x := x / 10;
+        d1 := x mod 10; x := x / 10;
+        d2 := x mod 10; x := x / 10;
+        d3 := x mod 10; x := x / 10;
+        d4 := x mod 10; x := x / 10;
+        d5 := x mod 10;
+
+        res := to_digit(d5) & to_digit(d4) & to_digit(d3) & to_digit(d2) & to_digit(d1) & to_digit(d0);
+        return res;
+    end function;
+
+begin
+    clk <= not clk after CLK_PERIOD/2;
+
+    DUT: entity work.Interfaz_calculadora
+        port map (
+            clk           => clk,
+            nRst          => nRst,
+            tecla         => tecla,
+            tecla_pulsada => tecla_pulsada,
+            num_bcd_out   => num_bcd_out,
+            res_sgn_out   => res_sgn_out,
+            err_out       => err_out,
+            pres_out      => pres_out
+        );
+
+    stim: process
+        procedure pulse_key(
+            signal tecla_s         : out std_logic_vector(3 downto 0);
+            signal tecla_pulsada_s : out std_logic;
+            constant key           : std_logic_vector(3 downto 0)
+        ) is
+        begin
+            tecla_s <= key;
+            wait until rising_edge(clk);
+            tecla_pulsada_s <= '1';
+            wait until rising_edge(clk);
+            tecla_pulsada_s <= '0';
+        end procedure;
+
+        procedure enter_number(
+            signal tecla_s         : out std_logic_vector(3 downto 0);
+            signal tecla_pulsada_s : out std_logic;
+            constant n             : integer
+        ) is
+            variable x : integer := n;
+            variable centenas, decenas, unidades : integer := 0;
+        begin
+            if x < 0 then
+                x := -x;
+            end if;
+
+            centenas := (x / 100) mod 10;
+            decenas  := (x / 10)  mod 10;
+            unidades := x mod 10;
+
+            pulse_key(tecla_s, tecla_pulsada_s, to_digit(centenas));
+            pulse_key(tecla_s, tecla_pulsada_s, to_digit(decenas));
+            pulse_key(tecla_s, tecla_pulsada_s, to_digit(unidades));
+        end procedure;
+
+    begin
+        -- Reset
+        nRst <= '0';
+        wait for 5*CLK_PERIOD;
+        nRst <= '1';
+        wait for 2*CLK_PERIOD;
+
+        --------------------------------------------------------------------
+        -- TEST 1: 12 + 34 = 46
+        --------------------------------------------------------------------
+        enter_number(tecla, tecla_pulsada, 12);
+        pulse_key(tecla, tecla_pulsada, x"A"); -- SUMA
+        enter_number(tecla, tecla_pulsada, 34);
+        pulse_key(tecla, tecla_pulsada, x"B"); -- IGUAL
+        wait for 40*CLK_PERIOD;
+
+        assert num_bcd_out = bcd_from_int(46)
+            report "ERROR: 12 + 34 no da 46" severity error;
+        assert res_sgn_out = '0'
+            report "ERROR: signo incorrecto en suma" severity error;
+
+        --------------------------------------------------------------------
+        -- TEST 2: 50 - 75 = -25
+        --------------------------------------------------------------------
+        enter_number(tecla, tecla_pulsada, 50);
+        pulse_key(tecla, tecla_pulsada, x"D"); -- RESTA
+        enter_number(tecla, tecla_pulsada, 75);
+        pulse_key(tecla, tecla_pulsada, x"B"); -- IGUAL
+        wait for 40*CLK_PERIOD;
+
+        assert num_bcd_out = bcd_from_int(25)
+            report "ERROR: 50 - 75 no da 25 en magnitud" severity error;
+        assert res_sgn_out = '1'
+            report "ERROR: signo incorrecto en resta negativa" severity error;
+
+        --------------------------------------------------------------------
+        -- TEST 3: -5 + 3 = -2 (cambio de signo)
+        --------------------------------------------------------------------
+        enter_number(tecla, tecla_pulsada, 5);
+        pulse_key(tecla, tecla_pulsada, x"C"); -- CAMBIO SIGNO OP1
+        pulse_key(tecla, tecla_pulsada, x"A"); -- SUMA
+        enter_number(tecla, tecla_pulsada, 3);
+        pulse_key(tecla, tecla_pulsada, x"B"); -- IGUAL
+        wait for 40*CLK_PERIOD;
+
+        assert num_bcd_out = bcd_from_int(2)
+            report "ERROR: -5 + 3 no da 2 en magnitud" severity error;
+        assert res_sgn_out = '1'
+            report "ERROR: signo incorrecto en suma negativa" severity error;
+
+        --------------------------------------------------------------------
+  --------------------------------------------------------------------
+        -- TEST 3: -5 + 3 = -2 (cambio de signo)
+        --------------------------------------------------------------------
+        enter_number(tecla, tecla_pulsada, 20);
+       
+        pulse_key(tecla, tecla_pulsada, x"E"); -- SUMA
+	pulse_key(tecla, tecla_pulsada, x"C"); -- CAMBIO SIGNO OP1
+        enter_number(tecla, tecla_pulsada, 3);
+        pulse_key(tecla, tecla_pulsada, x"B"); -- IGUAL
+        wait for 40*CLK_PERIOD;
+
+        assert num_bcd_out = bcd_from_int(60)
+            report "ERROR: -5 + 3 no da 2 en magnitud" severity error;
+        assert res_sgn_out = '1'
+            report "ERROR: signo incorrecto en suma negativa" severity error;
+
+        --------------------------------------------------------------------
+
+        report "TEST FINALIZADO CORRECTAMENTE" severity note;
+        wait;
+    end process;
+
+end architecture tb;
