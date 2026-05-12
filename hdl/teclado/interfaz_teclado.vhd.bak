@@ -7,8 +7,6 @@ port(
     clk          : in     std_logic;
     nRST         : in     std_logic;
 
-    tic_5ms      : in     std_logic;
-
     col0_in      : in     std_logic;
     col1_in      : in     std_logic;
     col2_in      : in     std_logic;
@@ -26,7 +24,7 @@ port(
 end entity;
 
 architecture estructural of interfaz_teclado is
-    
+    signal tic_5ms_s      : std_logic;
     signal columnas_in_s  : std_logic_vector(3 downto 0);
     signal columnas_f_s   : std_logic_vector(3 downto 0);
 begin
@@ -37,15 +35,15 @@ begin
     columnas_in_s(2) <= col2_in;
     columnas_in_s(3) <= col3_in;
 
---    ----------------------------------------------------------------
---    -- U0: divisor de reloj -> pulso tic cada 5 ms
---    ----------------------------------------------------------------
---    U0: entity work.clk_div(rtl)
---        port map(
---            clk  => clk,
---            nRST => nRST,
---            tic  => tic_5ms_s
-       -- );
+    ----------------------------------------------------------------
+    -- U0: divisor de reloj -> pulso tic cada 5 ms
+    ----------------------------------------------------------------
+    U0: entity work.clk_div(rtl)
+        port map(
+            clk  => clk,
+            nRST => nRST,
+            tic  => tic_5ms_s
+        );
 
     ----------------------------------------------------------------
     -- U1: filtro de rebotes de columnas
@@ -65,7 +63,7 @@ begin
         port map(
             clk           => clk,
             nRST          => nRST,
-            tic           => tic_5ms,
+            tic           => tic_5ms_s,
 
             col0          => columnas_f_s(0),
             col1          => columnas_f_s(1),

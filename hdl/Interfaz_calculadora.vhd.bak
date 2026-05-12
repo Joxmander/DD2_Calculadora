@@ -30,8 +30,6 @@ end entity;
 
 architecture rtl of Interfaz_calculadora is
 
-
-
     -- Señales internas del controlador
     signal pres_sig        : std_logic_vector(1 downto 0);
     signal inicio_cal      : std_logic;
@@ -65,7 +63,6 @@ architecture rtl of Interfaz_calculadora is
     signal tecla_pulsada : std_logic;
     signal pulso_largo_sig   : std_logic;
 
-
 begin
 
  U_TIMER: entity work.timer
@@ -86,7 +83,6 @@ U_TECLADO: entity work.interfaz_teclado
         port map(
             clk               => clk,
             nRST              => nRst,
-	    tic_5ms           => tic_5ms,
             col0_in           => col0_in,
             col1_in           => col1_in,
             col2_in           => col2_in,
