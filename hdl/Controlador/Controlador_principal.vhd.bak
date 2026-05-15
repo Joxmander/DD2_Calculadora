@@ -37,7 +37,7 @@ signal reg_OP: std_logic_vector(1 downto 0);
 signal reg_pres : std_logic_vector (1 downto 0);
 signal num_bcd:std_logic_vector(23 downto 0);
 type estado_t is (STOP, OP1,OP2,RES);
-signal cnt1,cnt2: std_logic_vector(1 downto 0); --Para qeu no haya mas de 3 nummeros
+signal cnt1,cnt2: std_logic(1 downto 0); --Para qeu no haya mas de 3 nummeros
 
   signal estado : estado_t;
 

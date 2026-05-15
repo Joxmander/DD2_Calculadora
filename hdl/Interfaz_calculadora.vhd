@@ -3,19 +3,18 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity Interfaz_calculadora is
+generic(                        -- Los valores por defecto para sintesis logica. En la simulacion se utilizan otros valores para escalarla
+    DIV_125ms : natural := 24;
+    DIV_1ms : natural := 49999;
+    TICS_2s : natural := 200
+);
     port(
          clk      : in  std_logic;
         nRst     : in  std_logic;
 
         -- Teclado matricial
-        col0_in  : in  std_logic;
-        col1_in  : in  std_logic;
-        col2_in  : in  std_logic;
-        col3_in  : in  std_logic;
-        fil0_out : out std_logic;
-        fil1_out : out std_logic;
-        fil2_out : out std_logic;
-        fil3_out : out std_logic;
+       columna       : in std_logic_vector(3 downto 0);
+    	fila          : buffer std_logic_vector(3 downto 0);
 
         -- Displays
         mux_disp : out std_logic_vector(7 downto 0);
@@ -68,9 +67,10 @@ architecture rtl of Interfaz_calculadora is
 
 begin
 
- U_TIMER: entity work.timer
+ U_TIMER: entity work.timer(rtl)
         generic map(
-            DIV_1ms => 49999 -- camibiamos el tic para que sea en 50 MHz
+            DIV_125ms   => DIV_125ms,
+    	    DIV_1ms     => DIV_1ms
         )
         port map(
             clk       => clk,
@@ -82,23 +82,26 @@ begin
             tic_5ms   => tic_5ms
         );
 
-U_TECLADO: entity work.interfaz_teclado
-        port map(
-            clk               => clk,
-            nRST              => nRst,
-	    tic_5ms           => tic_5ms,
-            col0_in           => col0_in,
-            col1_in           => col1_in,
-            col2_in           => col2_in,
-            col3_in           => col3_in,
-            fil0_out          => fil0_out,
-            fil1_out          => fil1_out,
-            fil2_out          => fil2_out,
-            fil3_out          => fil3_out,
-            tecla_out         => tecla,
-            tecla_pulsada_out => tecla_pulsada,
-            pulso_largo_out   => pulso_largo_sig
-        );
+U_TECLADO: entity work.ctrl_tec(rtl)
+generic map(
+    TICS_2s    => TICS_2s
+    )
+port map(
+    clk           => clk,
+    nRst          => nRst,
+    tic           => tic_5ms,
+    col0      => columna(0),
+    col1      => columna(1),
+    col2      => columna(2),
+    col3      => columna(3),
+    fil0          => fila(0),
+    fil1          => fila(1),
+    fil2         => fila(2),
+    fil3          => fila(3),
+    tecla_pulsada => tecla_pulsada,
+    tecla         => tecla
+   
+    );  
 
     -- Controlador principal
     U_CTRL: entity work.controlador_principal
