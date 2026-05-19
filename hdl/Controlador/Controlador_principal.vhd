@@ -129,21 +129,25 @@ end if;
 			 if fin_calculo = '1' then
 				num_bcd <= num_bcd_in;
 				res_sgn <= res_sgn_in;
+
 				reg_op1 <= (others => '0'); 
 				reg_op2 <= (others => '0');
 				op1_sgn_reg <= '0';
 				op2_sgn_reg <= '0';
 				
 				elsif  tecla_pulsada = '1' then
+ 						estado <= OP1;
 					if (tecla >= X"0" and tecla <= X"9") then 
---						reg_op1 <= reg_op1(7 downto 0) & valor; 
-
-						estado <= OP1;
+						reg_op1(3 downto 0) <= tecla; 
+                    				reg_op1(11 downto 4) <= (others => '0');
+					 	cnt1 <= "01"; -- Ya hemos introducido 1 dígit
 					else
-						estado <= STOP;
+							reg_op1 <= (others => '0');
+                    					cnt1 <= "00";
+
 					end if;
 				end if;
-			
+				
 				
 		
 				

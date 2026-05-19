@@ -64,6 +64,7 @@ architecture rtl of Interfaz_calculadora is
     signal tecla_pulsada : std_logic;
     signal pulso_largo_sig   : std_logic;
 
+    signal col_filtrada : std_logic_vector(3 downto 0);
 
 begin
 
@@ -82,6 +83,15 @@ begin
             tic_5ms   => tic_5ms
         );
 
+U_REBOTES: entity work.rebotes(rtl)
+        port map (
+            clk          => clk,
+            nRST         => nRst,
+	    tic          => tic_5ms,
+            columnas_in  => columna,       
+            columnas_out => col_filtrada   -- Sale limpia hacia el controlador
+        );
+
 U_TECLADO: entity work.ctrl_tec(rtl)
 generic map(
     TICS_2s    => TICS_2s
@@ -90,10 +100,10 @@ port map(
     clk           => clk,
     nRst          => nRst,
     tic           => tic_5ms,
-    col0      => columna(0),
-    col1      => columna(1),
-    col2      => columna(2),
-    col3      => columna(3),
+    col0      => col_filtrada(0),
+    col1      => col_filtrada(1),
+    col2      => col_filtrada(2),
+    col3      => col_filtrada(3),
     fil0          => fila(0),
     fil1          => fila(1),
     fil2         => fila(2),

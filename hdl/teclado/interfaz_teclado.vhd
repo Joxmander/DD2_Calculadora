@@ -54,6 +54,7 @@ begin
         port map(
             clk         => clk,
             nRST        => nRST,
+	    tic         => tic_5ms,
             columnas_in => columnas_in_s,
             columnas_out=> columnas_f_s
         );
