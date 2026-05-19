@@ -4,7 +4,7 @@ use ieee.std_logic_unsigned.all;
 
 entity Interfaz_calculadora is
 generic(                        -- Los valores por defecto para sintesis logica. En la simulacion se utilizan otros valores para escalarla
-    DIV_125ms : natural := 24;
+    DIV_125ms : natural := 12;
     DIV_1ms : natural := 49999;
     TICS_2s : natural := 200
 );
@@ -18,12 +18,7 @@ generic(                        -- Los valores por defecto para sintesis logica.
 
         -- Displays
         mux_disp : out std_logic_vector(7 downto 0);
-        disp     : out std_logic_vector(7 downto 0);
-
-        -- Salidas principales (debug/extra)
-        num_bcd_out : out std_logic_vector(23 downto 0);
-        res_sgn_out : out std_logic;
-        err_out     : out std_logic
+        disp     : out std_logic_vector(7 downto 0)
     );
 end entity;
 
@@ -31,7 +26,7 @@ architecture rtl of Interfaz_calculadora is
 
 
 
-    -- Señales internas del controlador
+    -- Seï¿½ales internas del controlador
     signal pres_sig        : std_logic_vector(1 downto 0);
     signal inicio_cal      : std_logic;
     signal fin_calculo     : std_logic;
@@ -44,7 +39,7 @@ architecture rtl of Interfaz_calculadora is
     signal op1_bcd_sig     : std_logic_vector(11 downto 0);
     signal op2_bcd_sig     : std_logic_vector(11 downto 0);
 
-    -- Señales entre conversor y ALU
+    -- Seï¿½ales entre conversor y ALU
     signal op1_bin_sig     : std_logic_vector(10 downto 0);
     signal op2_bin_sig     : std_logic_vector(10 downto 0);
 
@@ -64,7 +59,7 @@ architecture rtl of Interfaz_calculadora is
     signal tecla_pulsada : std_logic;
     signal pulso_largo_sig   : std_logic;
 
-    signal col_filtrada : std_logic_vector(3 downto 0);
+    
 
 begin
 
@@ -83,14 +78,7 @@ begin
             tic_5ms   => tic_5ms
         );
 
-U_REBOTES: entity work.rebotes(rtl)
-        port map (
-            clk          => clk,
-            nRST         => nRst,
-	    tic          => tic_5ms,
-            columnas_in  => columna,       
-            columnas_out => col_filtrada   -- Sale limpia hacia el controlador
-        );
+
 
 U_TECLADO: entity work.ctrl_tec(rtl)
 generic map(
@@ -100,18 +88,18 @@ port map(
     clk           => clk,
     nRst          => nRst,
     tic           => tic_5ms,
-    col0      => col_filtrada(0),
-    col1      => col_filtrada(1),
-    col2      => col_filtrada(2),
-    col3      => col_filtrada(3),
+    col0      => columna(0),
+    col1      => columna(1),
+    col2      => columna(2),
+    col3      => columna(3),
     fil0          => fila(0),
     fil1          => fila(1),
     fil2         => fila(2),
     fil3          => fila(3),
     tecla_pulsada => tecla_pulsada,
     tecla         => tecla
-   
     );  
+	 
 
     -- Controlador principal
     U_CTRL: entity work.controlador_principal
@@ -126,9 +114,7 @@ port map(
             fin_calculo    => fin_calculo,
 
             num_bcd_in     => num_bcd_sig,
-            num_bcd_out    => num_bcd_out,
             res_sgn_in     => res_sgn_sig,
-            res_sgn_out    => res_sgn_out,
 
             op1_sgn        => op1_sgn_sig,
             op2_sgn        => op2_sgn_sig,
@@ -139,7 +125,7 @@ port map(
         );
 
     -- Conversor BCD -> Binario
-    U_BCD_BIN: entity work.Conv_BCD_Bin
+    U_BCD_BIN: entity work.BCDToBinario
         port map (
             clk     => clk,
             nRst    => nRst,
@@ -191,8 +177,6 @@ port map(
             disp     => disp
         );
 
-    -- Salidas externas
-    err_out  <= err_sig;
     
 
 end rtl;

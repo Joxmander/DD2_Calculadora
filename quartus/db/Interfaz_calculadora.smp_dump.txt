@@ -12,7 +12,7 @@ estado.OP1 0 0 1 1
 estado.OP2 0 1 0 1 
 estado.RES 1 0 0 1 
 
-State Machine - |Interfaz_calculadora|interfaz_teclado:U_TECLADO|ctrl_tec:U2|estado
+State Machine - |Interfaz_calculadora|ctrl_tec:U_TECLADO|estado
 Name estado.PULSADO estado.ESCANEO estado.STOP 
 estado.STOP 0 0 0 
 estado.ESCANEO 0 1 1 

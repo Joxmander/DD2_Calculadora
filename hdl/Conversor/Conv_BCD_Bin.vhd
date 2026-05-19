@@ -1,37 +1,38 @@
 -- Fichero Conv_BCD_Bin.vhd
--- Módulo para convertir los operandos introducidos por teclado (BCD) a binario puro.
+-- Mï¿½dulo para convertir los operandos introducidos por teclado (BCD) a binario puro.
 --
 -- Entradas: 
---   - Dos operandos de 3 dígitos BCD (12 bits cada uno: centenas, decenas, unidades).
+--   - Dos operandos de 3 dï¿½gitos BCD (12 bits cada uno: centenas, decenas, unidades).
 --   - Un bit de signo para cada operando (0 = positivo, 1 = negativo).
 -- Salidas:
 --   - Los dos operandos convertidos a binario puro de 11 bits en Complemento a 2.
 --
 -- Funcionamiento:
--- Usamos la técnica de "desplazamiento y suma" para multiplicar 
--- las centenas por 100 y las decenas por 10. Después, si el número es negativo, 
+-- Usamos la tï¿½cnica de "desplazamiento y suma" para multiplicar 
+-- las centenas por 100 y las decenas por 10. Despuï¿½s, si el nï¿½mero es negativo, 
 -- se calcula su complemento a 2 (negar y sumar 1).
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity Conv_BCD_Bin is port(
+entity BCDToBinario is
+    port(
 	clk           : in 	std_logic;
     	nRst          : in 	std_logic;
         -- Operando 1
         op1_bcd : in  std_logic_vector(11 downto 0); -- centenas & decenas & unidades
-        op1_sgn : in  std_logic;                      -- 0=positivo, 1=negativo
+        op1_sgn : buffer  std_logic;                      -- 0=positivo, 1=negativo
         -- Operando 2
         op2_bcd : in  std_logic_vector(11 downto 0);
-        op2_sgn : in  std_logic;
+        op2_sgn : buffer  std_logic;
         -- Salidas en binario complemento a 2
         op1_bin : out std_logic_vector(10 downto 0);  -- rango -999..999
         op2_bin : out std_logic_vector(10 downto 0)
     );  
 end entity;
 
-architecture rtl of Conv_BCD_Bin is
+architecture rtl of BCDToBinario is
 
 	-- Variables en valor absoluto
 	-- Son de 11 bits porque 999 en binario necesita 10 bits (2^10=1024>999)
@@ -44,36 +45,36 @@ begin
 
 
     -- -------------------------------------------------------
-    -- CÁLCULO DE LA MAGNITUD DEL OPERANDO 1
+    -- Cï¿½LCULO DE LA MAGNITUD DEL OPERANDO 1
     -- -------------------------------------------------------
 	
-	-- magnitud = centenas×100 + decenas×10 + unidades
+	-- magnitud = centenasï¿½100 + decenasï¿½10 + unidades
 		-- centenas = op1_bcd(11 downto 8)
 		-- decenas  = op1_bcd(7  downto 4)
 		-- unidades = op1_bcd(3  downto 0)
 
-    mag1 <= ("0"       & op1_bcd(11 downto 8) & "000000")    -- centenas × 64 : desplazamos 6 posiciones a la izquierda
-          + ("00"      & op1_bcd(11 downto 8) & "00000" )    -- centenas × 32 : desplazamos 5 posiciones a la izquierda   
-          + ("00000"   & op1_bcd(11 downto 8) & "00"    )    -- centenas × 4  : desplazamos 2 posiciones a la izquierda
-          + ("0000"    & op1_bcd(7 downto 4)  & "000"   )    -- decenas × 8   : desplazamos 3 posiciones a la izquierda
-          + ("000000"  & op1_bcd(7 downto 4)  & "0"     )    -- decenas × 2   : desplazamos 1 posición a la izquierda
-          + ("0000000" & op1_bcd(3 downto 0)            );   -- unidades × 1  : sin desplazamiento
+    mag1 <= ("0"       & op1_bcd(11 downto 8) & "000000")    -- centenas ï¿½ 64 : desplazamos 6 posiciones a la izquierda
+          + ("00"      & op1_bcd(11 downto 8) & "00000" )    -- centenas ï¿½ 32 : desplazamos 5 posiciones a la izquierda   
+          + ("00000"   & op1_bcd(11 downto 8) & "00"    )    -- centenas ï¿½ 4  : desplazamos 2 posiciones a la izquierda
+          + ("0000"    & op1_bcd(7 downto 4)  & "000"   )    -- decenas ï¿½ 8   : desplazamos 3 posiciones a la izquierda
+          + ("000000"  & op1_bcd(7 downto 4)  & "0"     )    -- decenas ï¿½ 2   : desplazamos 1 posiciï¿½n a la izquierda
+          + ("0000000" & op1_bcd(3 downto 0)            );   -- unidades ï¿½ 1  : sin desplazamiento
 
     -- -------------------------------------------------------
-    -- CÁLCULO DE LA MAGNITUD DEL OPERANDO 2
+    -- Cï¿½LCULO DE LA MAGNITUD DEL OPERANDO 2
     -- -------------------------------------------------------
 
-    mag2 <= ("0"       & op2_bcd(11 downto 8) & "000000")    -- centenas × 64 : desplazamos 6 posiciones a la izquierda
-          + ("00"      & op2_bcd(11 downto 8) & "00000" )    -- centenas × 32 : desplazamos 5 posiciones a la izquierda   
-          + ("00000"   & op2_bcd(11 downto 8) & "00"    )    -- centenas × 4  : desplazamos 2 posiciones a la izquierda
-          + ("0000"    & op2_bcd(7 downto 4)  & "000"   )    -- decenas × 8   : desplazamos 3 posiciones a la izquierda
-          + ("000000"  & op2_bcd(7 downto 4)  & "0"     )    -- decenas × 2   : desplazamos 1 posición a la izquierda
-          + ("0000000" & op2_bcd(3 downto 0)            );   -- unidades × 1  : sin desplazamiento
+    mag2 <= ("0"       & op2_bcd(11 downto 8) & "000000")    -- centenas ï¿½ 64 : desplazamos 6 posiciones a la izquierda
+          + ("00"      & op2_bcd(11 downto 8) & "00000" )    -- centenas ï¿½ 32 : desplazamos 5 posiciones a la izquierda   
+          + ("00000"   & op2_bcd(11 downto 8) & "00"    )    -- centenas ï¿½ 4  : desplazamos 2 posiciones a la izquierda
+          + ("0000"    & op2_bcd(7 downto 4)  & "000"   )    -- decenas ï¿½ 8   : desplazamos 3 posiciones a la izquierda
+          + ("000000"  & op2_bcd(7 downto 4)  & "0"     )    -- decenas ï¿½ 2   : desplazamos 1 posiciï¿½n a la izquierda
+          + ("0000000" & op2_bcd(3 downto 0)            );   -- unidades ï¿½ 1  : sin desplazamiento
 
 
 
     -- -------------------------------------------------------
-    -- PROCESO SÍNCRONO: REGISTRO DE SALIDA CON SIGNO
+    -- PROCESO Sï¿½NCRONO: REGISTRO DE SALIDA CON SIGNO
     -- -------------------------------------------------------
 
 	-- En el flanco de subida del reloj se registra la entrada
@@ -108,3 +109,4 @@ begin
 
 
 end rtl;
+

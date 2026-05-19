@@ -55,35 +55,10 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE ../hdl/Conversor/lpm_mult1.vhd
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Controlador/Controlador_principal.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/Conv_BCD_Bin.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/BinarioToBCD.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/ALU.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Displays/displays.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/rebotes.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/interfaz_teclado.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/ctrl_tec.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Timer/timer.vhd"
-set_global_assignment -name VHDL_FILE "E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd"
 set_location_assignment PIN_M8 -to clk
 set_instance_assignment -name IO_STANDARD "2.5 V" -to clk
 set_location_assignment PIN_H21 -to nRst
 set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to nRst
-set_location_assignment PIN_W18 -to col0_in
-set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to col0_in
-set_location_assignment PIN_Y19 -to col1_in
-set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to col1_in
-set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to col2_in
-set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to col3_in
-set_location_assignment PIN_AA20 -to col2_in
-set_location_assignment PIN_AB21 -to col3_in
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to col2_in
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to col1_in
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to col3_in
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to col0_in
 set_location_assignment PIN_AB12 -to disp[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to disp[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to disp[6]
@@ -116,12 +91,36 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mux_disp[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mux_disp[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mux_disp[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mux_disp[0]
-set_location_assignment PIN_Y18 -to fil0_out
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fil0_out
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fil1_out
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fil2_out
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fil3_out
-set_location_assignment PIN_AA17 -to fil1_out
-set_location_assignment PIN_AA19 -to fil2_out
-set_location_assignment PIN_AB20 -to fil3_out
+set_global_assignment -name VHDL_FILE ../hdl/Timer/timer.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Interfaz_calculadora.vhd
+set_global_assignment -name VHDL_FILE ../hdl/teclado/rebotes.vhd
+set_global_assignment -name VHDL_FILE ../hdl/teclado/ctrl_tec.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Displays/displays.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/SumadorBCD_6Digitos.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/SumadorBCD_1Digito.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/mult.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/Conv_BCD_Bin.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/BinarioToBCD.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Conversor/ALU.vhd
+set_global_assignment -name VHDL_FILE ../hdl/Controlador/Controlador_principal.vhd
+set_location_assignment PIN_W18 -to columna[0]
+set_location_assignment PIN_Y19 -to columna[1]
+set_location_assignment PIN_AA20 -to columna[2]
+set_location_assignment PIN_AB21 -to columna[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to columna[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to columna[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to columna[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to columna[0]
+set_location_assignment PIN_Y18 -to fila[0]
+set_location_assignment PIN_AA17 -to fila[1]
+set_location_assignment PIN_AA19 -to fila[2]
+set_location_assignment PIN_AB20 -to fila[3]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to columna[3]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to columna[2]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to columna[1]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to columna[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fila[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fila[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fila[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fila[0]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

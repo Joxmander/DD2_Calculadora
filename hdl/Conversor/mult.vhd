@@ -1,3 +1,4 @@
+
 -- megafunction wizard: %LPM_MULT%
 -- GENERATION: STANDARD
 -- VERSION: WM1.0
@@ -40,17 +41,17 @@ USE ieee.std_logic_1164.all;
 LIBRARY lpm;
 USE lpm.all;
 
-ENTITY lpm_mult IS
+ENTITY mult IS
 	PORT
 	(
 		dataa		: IN STD_LOGIC_VECTOR (10 DOWNTO 0);
 		datab		: IN STD_LOGIC_VECTOR (10 DOWNTO 0);
 		result		: OUT STD_LOGIC_VECTOR (21 DOWNTO 0)
 	);
-END lpm_mult;
+END mult;
 
 
-ARCHITECTURE SYN OF lpm_mult IS
+ARCHITECTURE SYN OF mult IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (21 DOWNTO 0);
 

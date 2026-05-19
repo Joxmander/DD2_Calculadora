@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Interfaz_calculadora
-Tue May 12 14:06:19 2026
+Tue May 19 14:25:23 2026
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -10,7 +10,15 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Parameter Settings for User Entity Instance: Top-level Entity: |Interfaz_calculadora
+  6. Parameter Settings for User Entity Instance: timer:U_TIMER
+  7. Parameter Settings for User Entity Instance: ctrl_tec:U_TECLADO
+  8. Parameter Settings for User Entity Instance: alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component
+  9. Port Connectivity Checks: "BinarioToBCD:U_BIN_BCD|SumadorBCD_6Digitos:SUMADOR"
+ 10. Port Connectivity Checks: "alu_calc:U_ALU"
+ 11. Port Connectivity Checks: "ctrl_tec:U_TECLADO"
+ 12. Port Connectivity Checks: "timer:U_TIMER"
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -37,7 +45,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue May 12 14:06:19 2026           ;
+; Analysis & Synthesis Status        ; Failed - Tue May 19 14:25:23 2026           ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; Interfaz_calculadora                        ;
 ; Top-level Entity Name              ; Interfaz_calculadora                        ;
@@ -154,59 +162,199 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Interfaz_calculadora ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; DIV_125ms      ; 12    ; Signed Integer                                              ;
+; DIV_1ms        ; 49999 ; Signed Integer                                              ;
+; TICS_2s        ; 200   ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: timer:U_TIMER ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; div_125ms      ; 12    ; Signed Integer                    ;
+; div_1ms        ; 49999 ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ctrl_tec:U_TECLADO ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; tics_2s        ; 200   ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component ;
++------------------------------------------------+----------+--------------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                       ;
++------------------------------------------------+----------+--------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                             ;
+; LPM_WIDTHA                                     ; 11       ; Signed Integer                             ;
+; LPM_WIDTHB                                     ; 11       ; Signed Integer                             ;
+; LPM_WIDTHP                                     ; 22       ; Signed Integer                             ;
+; LPM_WIDTHR                                     ; 0        ; Untyped                                    ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                                    ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                                    ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                                    ;
+; LATENCY                                        ; 0        ; Untyped                                    ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                                    ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                                    ;
+; USE_EAB                                        ; OFF      ; Untyped                                    ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                                    ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                                    ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                                    ;
+; CBXI_PARAMETER                                 ; mult_0jm ; Untyped                                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                                    ;
++------------------------------------------------+----------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinarioToBCD:U_BIN_BCD|SumadorBCD_6Digitos:SUMADOR"                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_calc:U_ALU"                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; err  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ctrl_tec:U_TECLADO"                                                                        ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; pulso_largo ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "timer:U_TIMER"                                                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; tic_125ms ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; tic_025s  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; tic_1s    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Tue May 12 14:06:11 2026
+    Info: Processing started: Tue May 19 14:25:15 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Interfaz_calculadora -c Interfaz_calculadora
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/lpm_mult1.vhd
-    Info (12022): Found design unit 1: mult-SYN File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/lpm_mult1.vhd Line: 53
-    Info (12023): Found entity 1: mult File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/lpm_mult1.vhd Line: 43
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/controlador/controlador_principal.vhd
-    Info (12022): Found design unit 1: controlador_principal-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Controlador/Controlador_principal.vhd Line: 32
-    Info (12023): Found entity 1: controlador_principal File: E:/UNI/3/DD2_2026/Calculadora/hdl/Controlador/Controlador_principal.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/sumadorbcd_6digitos.vhd
-    Info (12022): Found design unit 1: SumadorBCD_6Digitos-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 18
-    Info (12023): Found entity 1: SumadorBCD_6Digitos File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/sumadorbcd_1digito.vhd
-    Info (12022): Found design unit 1: SumadorBCD_1Digito-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 24
-    Info (12023): Found entity 1: SumadorBCD_1Digito File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 14
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/conv_bcd_bin.vhd
-    Info (12022): Found design unit 1: Conv_BCD_Bin-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 34
-    Info (12023): Found entity 1: Conv_BCD_Bin File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/binariotobcd.vhd
-    Info (12022): Found design unit 1: BinarioToBCD-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 22
-    Info (12023): Found entity 1: BinarioToBCD File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 11
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/alu.vhd
-    Info (12022): Found design unit 1: alu_calc-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/ALU.vhd Line: 18
-    Info (12023): Found entity 1: alu_calc File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/ALU.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/displays/displays.vhd
-    Info (12022): Found design unit 1: displays-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Displays/displays.vhd Line: 21
-    Info (12023): Found entity 1: displays File: E:/UNI/3/DD2_2026/Calculadora/hdl/Displays/displays.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/rebotes.vhd
-    Info (12022): Found design unit 1: rebotes-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/rebotes.vhd Line: 13
-    Info (12023): Found entity 1: rebotes File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/rebotes.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/interfaz_teclado.vhd
-    Info (12022): Found design unit 1: interfaz_teclado-estructural File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/interfaz_teclado.vhd Line: 28
-    Info (12023): Found entity 1: interfaz_teclado File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/interfaz_teclado.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/ctrl_tec.vhd
-    Info (12022): Found design unit 1: ctrl_tec-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/ctrl_tec.vhd Line: 29
-    Info (12023): Found entity 1: ctrl_tec File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/ctrl_tec.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/timer/timer.vhd
-    Info (12022): Found design unit 1: timer-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Timer/timer.vhd Line: 40
-    Info (12023): Found entity 1: timer File: E:/UNI/3/DD2_2026/Calculadora/hdl/Timer/timer.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/interfaz_calculadora.vhd
-    Info (12022): Found design unit 1: Interfaz_calculadora-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 37
-    Info (12023): Found entity 1: Interfaz_calculadora File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 5
-Error (10349): VHDL Association List error at Interfaz_calculadora.vhd(96): formal "TICS_2s" does not exist File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 96
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4993 megabytes
-    Error: Processing ended: Tue May 12 14:06:19 2026
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/timer/timer.vhd
+    Info (12022): Found design unit 1: timer-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Timer/timer.vhd Line: 40
+    Info (12023): Found entity 1: timer File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Timer/timer.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/interfaz_calculadora.vhd
+    Info (12022): Found design unit 1: Interfaz_calculadora-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 25
+    Info (12023): Found entity 1: Interfaz_calculadora File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/teclado/rebotes.vhd
+    Info (12022): Found design unit 1: rebotes-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/rebotes.vhd Line: 124
+    Info (12023): Found entity 1: rebotes File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/rebotes.vhd Line: 114
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/teclado/ctrl_tec.vhd
+    Info (12022): Found design unit 1: ctrl_tec-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/ctrl_tec.vhd Line: 29
+    Info (12023): Found entity 1: ctrl_tec File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/ctrl_tec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/displays/displays.vhd
+    Info (12022): Found design unit 1: displays-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Displays/displays.vhd Line: 21
+    Info (12023): Found entity 1: displays File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Displays/displays.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/sumadorbcd_6digitos.vhd
+    Info (12022): Found design unit 1: SumadorBCD_6Digitos-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 18
+    Info (12023): Found entity 1: SumadorBCD_6Digitos File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/sumadorbcd_1digito.vhd
+    Info (12022): Found design unit 1: SumadorBCD_1Digito-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 24
+    Info (12023): Found entity 1: SumadorBCD_1Digito File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/mult.vhd
+    Info (12022): Found design unit 1: mult-SYN File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd Line: 54
+    Info (12023): Found entity 1: mult File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd Line: 44
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/conv_bcd_bin.vhd
+    Info (12022): Found design unit 1: BCDToBinario-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 35
+    Info (12023): Found entity 1: BCDToBinario File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/binariotobcd.vhd
+    Info (12022): Found design unit 1: BinarioToBCD-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 22
+    Info (12023): Found entity 1: BinarioToBCD File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/conversor/alu.vhd
+    Info (12022): Found design unit 1: alu_calc-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd Line: 18
+    Info (12023): Found entity 1: alu_calc File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_calculadora-calculadora/hdl/controlador/controlador_principal.vhd
+    Info (12022): Found design unit 1: controlador_principal-rtl File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 30
+    Info (12023): Found entity 1: controlador_principal File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 5
+Info (12127): Elaborating entity "Interfaz_calculadora" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Interfaz_calculadora.vhd(48): object "err_sig" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 48
+Warning (10036): Verilog HDL or VHDL warning at Interfaz_calculadora.vhd(53): object "tic_125ms" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 53
+Warning (10036): Verilog HDL or VHDL warning at Interfaz_calculadora.vhd(54): object "tic_025s" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at Interfaz_calculadora.vhd(55): object "tic_1s" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 55
+Info (12129): Elaborating entity "timer" using architecture "A:rtl" for hierarchy "timer:U_TIMER" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 66
+Info (12129): Elaborating entity "ctrl_tec" using architecture "A:rtl" for hierarchy "ctrl_tec:U_TECLADO" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 83
+Info (12128): Elaborating entity "controlador_principal" for hierarchy "controlador_principal:U_CTRL" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 105
+Warning (10036): Verilog HDL or VHDL warning at Controlador_principal.vhd(31): object "res_sgn" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 31
+Warning (10036): Verilog HDL or VHDL warning at Controlador_principal.vhd(36): object "num_bcd" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 36
+Info (12128): Elaborating entity "BCDToBinario" for hierarchy "BCDToBinario:U_BCD_BIN" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 128
+Warning (10030): Net "op1_sgn" at Conv_BCD_Bin.vhd(25) has no driver or initial value, using a default initial value '0' File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 25
+Warning (10030): Net "op2_sgn" at Conv_BCD_Bin.vhd(28) has no driver or initial value, using a default initial value '0' File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 28
+Info (12128): Elaborating entity "alu_calc" for hierarchy "alu_calc:U_ALU" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 141
+Info (12129): Elaborating entity "mult" using architecture "A:syn" for hierarchy "alu_calc:U_ALU|mult:mult_inst" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd Line: 44
+Info (12128): Elaborating entity "lpm_mult" for hierarchy "alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd Line: 79
+Info (12130): Elaborated megafunction instantiation "alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd Line: 79
+Info (12133): Instantiated megafunction "alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component" with the following parameter: File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd Line: 79
+    Info (12134): Parameter "lpm_hint" = "MAXIMIZE_SPEED=5"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_MULT"
+    Info (12134): Parameter "lpm_widtha" = "11"
+    Info (12134): Parameter "lpm_widthb" = "11"
+    Info (12134): Parameter "lpm_widthp" = "22"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_0jm.tdf
+    Info (12023): Found entity 1: mult_0jm File: E:/UNI/3/DD2_Calculadora-calculadora/quartus/db/mult_0jm.tdf Line: 29
+Info (12128): Elaborating entity "mult_0jm" for hierarchy "alu_calc:U_ALU|mult:mult_inst|lpm_mult:lpm_mult_component|mult_0jm:auto_generated" File: c:/altera_lite/16.0/quartus/libraries/megafunctions/lpm_mult.tdf Line: 377
+Info (12128): Elaborating entity "BinarioToBCD" for hierarchy "BinarioToBCD:U_BIN_BCD" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 154
+Warning (10036): Verilog HDL or VHDL warning at BinarioToBCD.vhd(33): object "cout_ignorado" assigned a value but never read File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 33
+Info (12128): Elaborating entity "SumadorBCD_6Digitos" for hierarchy "BinarioToBCD:U_BIN_BCD|SumadorBCD_6Digitos:SUMADOR" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 39
+Info (12128): Elaborating entity "SumadorBCD_1Digito" for hierarchy "BinarioToBCD:U_BIN_BCD|SumadorBCD_6Digitos:SUMADOR|SumadorBCD_1Digito:DIGITO_0" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 27
+Info (12128): Elaborating entity "displays" for hierarchy "displays:U_DISP" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 164
+Error (12014): Net "op1_sgn_sig", which fans out to "displays:U_DISP|op1_sgn", cannot be assigned more than one value File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 36
+    Error (12015): Net is fed by "controlador_principal:U_CTRL|op1_sgn" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 20
+    Error (12015): Net is fed by "BCDToBinario:U_BCD_BIN|op1_sgn" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 25
+Error (12014): Net "op2_sgn_sig", which fans out to "displays:U_DISP|op2_sgn", cannot be assigned more than one value File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd Line: 37
+    Error (12015): Net is fed by "controlador_principal:U_CTRL|op2_sgn" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd Line: 21
+    Error (12015): Net is fed by "BCDToBinario:U_BCD_BIN|op2_sgn" File: E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 28
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 6 errors, 10 warnings
+    Error: Peak virtual memory: 5002 megabytes
+    Error: Processing ended: Tue May 19 14:25:23 2026
     Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:12
+    Error: Total CPU time (on all processors): 00:00:13
 
 

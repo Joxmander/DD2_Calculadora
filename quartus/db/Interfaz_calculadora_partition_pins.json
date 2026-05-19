@@ -4,19 +4,19 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "fil0_out",
+					"name" : "fila[0]",
 					"strict" : false
 				},
 				{
-					"name" : "fil1_out",
+					"name" : "fila[1]",
 					"strict" : false
 				},
 				{
-					"name" : "fil2_out",
+					"name" : "fila[2]",
 					"strict" : false
 				},
 				{
-					"name" : "fil3_out",
+					"name" : "fila[3]",
 					"strict" : false
 				},
 				{
@@ -80,107 +80,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "num_bcd_out[0]",
+					"name" : "columna[3]",
 					"strict" : false
 				},
 				{
-					"name" : "num_bcd_out[1]",
+					"name" : "columna[2]",
 					"strict" : false
 				},
 				{
-					"name" : "num_bcd_out[2]",
+					"name" : "columna[0]",
 					"strict" : false
 				},
 				{
-					"name" : "num_bcd_out[3]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[4]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[5]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[6]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[7]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[8]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[9]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[10]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[11]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[12]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[13]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[14]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[15]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[16]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[17]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[18]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[19]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[20]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[21]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[22]",
-					"strict" : false
-				},
-				{
-					"name" : "num_bcd_out[23]",
-					"strict" : false
-				},
-				{
-					"name" : "res_sgn_out",
-					"strict" : false
-				},
-				{
-					"name" : "err_out",
+					"name" : "columna[1]",
 					"strict" : false
 				},
 				{
@@ -189,22 +101,6 @@
 				},
 				{
 					"name" : "nRst",
-					"strict" : false
-				},
-				{
-					"name" : "col3_in",
-					"strict" : false
-				},
-				{
-					"name" : "col2_in",
-					"strict" : false
-				},
-				{
-					"name" : "col0_in",
-					"strict" : false
-				},
-				{
-					"name" : "col1_in",
 					"strict" : false
 				}
 			]

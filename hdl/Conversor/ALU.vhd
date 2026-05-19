@@ -5,28 +5,28 @@ use ieee.std_logic_unsigned.all;
 
 entity alu_calc is
     port(
-        A, B    : in  std_logic_vector(10 downto 0); -- 11 bits (seg˙n Conv_BCD_Bin)
+        A, B    : in  std_logic_vector(10 downto 0); -- 11 bits (seg√∫n Conv_BCD_Bin)
         OP      : in  std_logic_vector(1 downto 0);
         op1_sgn : in  std_logic;
         op2_sgn : in  std_logic;
-        Res     : out std_logic_vector(19 downto 0); -- 12 bits (seg˙n BinarioToBCD)
+        Res     : out std_logic_vector(19 downto 0); -- ¬°CORREGIDO A 20 BITS! (seg√∫n BinarioToBCD)
         Sign    : out std_logic;                     -- '1' si es negativo
-        Err     : out std_logic                      -- '1' si Res > 999
+        Err     : out std_logic                      -- '1' si Res > 998001
     );
 end alu_calc;
 
 architecture rtl of alu_calc is
-    -- SeÒales internas
+    -- Se√±ales internas
     signal res_int       : std_logic_vector(21 downto 0); 
     signal a_ext         : std_logic_vector(11 downto 0);
     signal b_ext         : std_logic_vector(11 downto 0);
     signal suma_ext      : std_logic_vector(11 downto 0);
     signal resta_ext     : std_logic_vector(11 downto 0);
     
-    -- SeÒal para recoger el resultado del multiplicador IP
+    -- Se√±al para recoger el resultado del multiplicador IP
     signal res_mult_ip   : std_logic_vector(21 downto 0);
 
-    -- 1. DeclaraciÛn del componente IP lpm_mult
+    -- 1. Declaraci√≥n del componente IP lpm_mult
     component lpm_mult IS
         PORT
         (
@@ -38,25 +38,25 @@ architecture rtl of alu_calc is
 
 begin
 
-    -- 2. InstanciaciÛn del multiplicador IP
-    -- Como la IP est· configurada como "SIGNED", le pasamos A y B directamente
+    -- 2. Instanciaci√≥n del multiplicador IP
+    -- Como la IP est√° configurada como "SIGNED", le pasamos A y B directamente
     -- y ella nos devuelve el resultado en complemento a 2 en res_mult_ip.
-    mult_inst : lpm_mult
+    mult_inst : entity work.mult(syn)
         port map (
             dataa  => A,
             datab  => B,
             result => res_mult_ip
         );
 
-    -- ExtensiÛn de signo: copiamos el bit m·s a la izquierda (A(10)) 
-    -- para pasar de 11 a 12 bits sin romper los n˙meros negativos
+    -- Extensi√≥n de signo: copiamos el bit m√°s a la izquierda (A(10)) 
+    -- para pasar de 11 a 12 bits sin romper los n√∫meros negativos
     a_ext <= A(10) & A;
     b_ext <= B(10) & B;
     
     suma_ext  <= a_ext + b_ext;
     resta_ext <= a_ext - b_ext;
 
-    -- No olvidemos aÒadir las seÒales a la lista de sensibilidad
+    -- No olvidemos a√±adir las se√±ales a la lista de sensibilidad
     process(OP, suma_ext, resta_ext, res_mult_ip)
     begin
         Sign <= '0'; -- Valor por defecto
@@ -81,7 +81,7 @@ begin
                     Sign <= '0';
                 end if;
                 
-            when "10" => -- MULTIPLICACI”N (Usando el resultado de la IP)
+            when "10" => -- MULTIPLICACI√ìN (Usando el resultado de la IP)
                 -- El resultado viene en complemento a 2.
                 -- Si el bit 21 (el bit de signo) es '1', el resultado es negativo
                 if res_mult_ip(21) = '1' then
@@ -98,8 +98,8 @@ begin
         end case;
     end process;
 
-    -- Errores y salida
-    Err <= '1' when (res_int > 999) else '0';
+    -- ¬°CORREGIDOS LOS ERRORES DE L√çMITE Y DE TAMA√ëO!
+    Err <= '1' when (res_int > 998001) else '0';
     Res <= res_int(19 downto 0);
     
 end architecture;

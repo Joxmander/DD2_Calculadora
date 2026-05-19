@@ -1,5 +1,5 @@
 Flow report for Interfaz_calculadora
-Tue May 12 14:06:19 2026
+Tue May 19 14:25:23 2026
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Flow Failed - Tue May 12 14:06:19 2026      ;
+; Flow Status                        ; Flow Failed - Tue May 19 14:25:23 2026      ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; Interfaz_calculadora                        ;
 ; Top-level Entity Name              ; Interfaz_calculadora                        ;
@@ -67,7 +67,7 @@ agreement for further details.
 +-------------------+----------------------+
 ; Option            ; Setting              ;
 +-------------------+----------------------+
-; Start date & time ; 05/12/2026 14:06:11  ;
+; Start date & time ; 05/19/2026 14:25:15  ;
 ; Main task         ; Compilation          ;
 ; Revision Name     ; Interfaz_calculadora ;
 +-------------------+----------------------+
@@ -78,7 +78,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 345052807169.177858757118124          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 345052807169.177919351502844          ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
@@ -98,8 +98,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4993 MB             ; 00:00:12                           ;
-; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:12                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 5002 MB             ; 00:00:13                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:13                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

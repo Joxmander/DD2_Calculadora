@@ -14,9 +14,7 @@ port(
 	fin_calculo: in std_logic;
 	
 	num_bcd_in  : in std_logic_vector(23 downto 0);
-	num_bcd_out  : buffer std_logic_vector(23 downto 0);
 	res_sgn_in:   in std_logic;
-	res_sgn_out:   buffer std_logic;
 
 	
 	op1_sgn: buffer std_logic;
@@ -138,9 +136,13 @@ end if;
 				elsif  tecla_pulsada = '1' then
  						estado <= OP1;
 					if (tecla >= X"0" and tecla <= X"9") then 
+						if (tecla >= X"0" and tecla <= X"9") then	
+						reg_op1  <= (others => '0');
+						else
 						reg_op1(3 downto 0) <= tecla; 
                     				reg_op1(11 downto 4) <= (others => '0');
-					 	cnt1 <= "01"; -- Ya hemos introducido 1 dígit
+					 	cnt1 <= "01"; -- Ya hemos introducido 1 dÃ¯Â¿Â½git
+						end if;	
 					else
 							reg_op1 <= (others => '0');
                     					cnt1 <= "00";
@@ -202,13 +204,10 @@ end process;
 --
 
 
---enlazamos las señales
+--enlazamos las seï¿½ales
 OP <= reg_OP;
 pres <= reg_pres;
 
-
-num_bcd_out <= num_bcd;
-res_sgn_out <= res_sgn;
 
 op1_sgn <= op1_sgn_reg ;
 op2_sgn <= op2_sgn_reg ;
