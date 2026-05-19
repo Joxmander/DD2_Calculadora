@@ -1,0 +1,19 @@
+
+State Machine - |Interfaz_calculadora|BinarioToBCD:U_BIN_BCD|estado
+Name estado.ST_FIN estado.ST_CALCULO estado.ST_REPOSO 
+estado.ST_REPOSO 0 0 0 
+estado.ST_CALCULO 0 1 1 
+estado.ST_FIN 1 0 1 
+
+State Machine - |Interfaz_calculadora|controlador_principal:U_CTRL|estado
+Name estado.RES estado.OP2 estado.OP1 estado.STOP 
+estado.STOP 0 0 0 0 
+estado.OP1 0 0 1 1 
+estado.OP2 0 1 0 1 
+estado.RES 1 0 0 1 
+
+State Machine - |Interfaz_calculadora|interfaz_teclado:U_TECLADO|ctrl_tec:U2|estado
+Name estado.PULSADO estado.ESCANEO estado.STOP 
+estado.STOP 0 0 0 
+estado.ESCANEO 0 1 1 
+estado.PULSADO 1 0 1 

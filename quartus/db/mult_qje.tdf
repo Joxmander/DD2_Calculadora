@@ -1,0 +1,110 @@
+--lpm_mult CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="MAX 10" DSP_BLOCK_BALANCING="Auto" dataa datab result CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
+--VERSION_BEGIN 16.0 cbx_cycloneii 2016:04:27:18:05:34:SJ cbx_lpm_add_sub 2016:04:27:18:05:34:SJ cbx_lpm_mult 2016:04:27:18:05:34:SJ cbx_mgl 2016:04:27:18:06:48:SJ cbx_nadder 2016:04:27:18:05:34:SJ cbx_padd 2016:04:27:18:05:34:SJ cbx_stratix 2016:04:27:18:05:34:SJ cbx_stratixii 2016:04:27:18:05:34:SJ cbx_util_mgl 2016:04:27:18:05:34:SJ  VERSION_END
+
+
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, the Altera Quartus Prime License Agreement,
+--  the Altera MegaCore Function License Agreement, or other 
+--  applicable license agreement, including, without limitation, 
+--  that your use is for the sole purpose of programming logic 
+--  devices manufactured by Altera and sold by Altera or its 
+--  authorized distributors.  Please refer to the applicable 
+--  agreement for further details.
+
+
+
+--synthesis_resources = 
+SUBDESIGN mult_qje
+( 
+	dataa	:	input;
+	datab	:	input;
+	result	:	output;
+) 
+
+BEGIN 
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHP has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHP has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHP has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHP has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "Parameter error: value of LPM_WIDTHA parameter must be greater than 0"
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHA has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Invalid parameter LPM_WIDTHA is used to specify the width of port lpm_mult|dataa. CAUSE : The parameter is being used to specify the width of a port. However the parameter does not exist or is a string parameter (only integer parameters can be used to specify widths of ports). ACTION : Use a valid integer parameter name to specify port widths."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHB has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Invalid parameter LPM_WIDTHB is used to specify the width of port lpm_mult|datab. CAUSE : The parameter is being used to specify the width of a port. However the parameter does not exist or is a string parameter (only integer parameters can be used to specify widths of ports). ACTION : Use a valid integer parameter name to specify port widths."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Parameter lpm_mult|LPM_WIDTHP has no default value and has not been assigned any value. CAUSE : An attempt was made to access the value of a parameter which has no default, and has not been assigned a value. All parameters should have a default value, or, if the parameter is a required parameter, an assignment should be made. ACTION : Specify a value for the parameter or if the parameter is an optional parameter, specify a default value."
+	SEVERITY ERROR;
+	ASSERT (0) 
+	REPORT "MGL_INTERNAL_ERROR: Invalid parameter LPM_WIDTHP is used to specify the width of port lpm_mult|result. CAUSE : The parameter is being used to specify the width of a port. However the parameter does not exist or is a string parameter (only integer parameters can be used to specify widths of ports). ACTION : Use a valid integer parameter name to specify port widths."
+	SEVERITY ERROR;
+END;
+--ERROR FILE

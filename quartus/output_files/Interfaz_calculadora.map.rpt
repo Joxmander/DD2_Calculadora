@@ -1,0 +1,212 @@
+Analysis & Synthesis report for Interfaz_calculadora
+Tue May 12 14:06:19 2026
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Failed - Tue May 12 14:06:19 2026           ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; Interfaz_calculadora                        ;
+; Top-level Entity Name              ; Interfaz_calculadora                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
++------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                     ; Setting              ; Default Value        ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                     ; 10M50DAF484C6GES     ;                      ;
+; Top-level entity name                                                      ; Interfaz_calculadora ; Interfaz_calculadora ;
+; Family name                                                                ; MAX 10               ; Cyclone V            ;
+; Use smart compilation                                                      ; Off                  ; Off                  ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                                ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                   ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                                        ; Off                  ; Off                  ;
+; Preserve fewer node names                                                  ; On                   ; On                   ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                  ; Off                  ;
+; Verilog Version                                                            ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                               ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                   ; Auto                 ; Auto                 ;
+; Safe State Machine                                                         ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                             ; On                   ; On                   ;
+; Extract VHDL State Machines                                                ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                          ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                 ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                             ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                  ; On                   ; On                   ;
+; Parallel Synthesis                                                         ; On                   ; On                   ;
+; DSP Block Balancing                                                        ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                         ; On                   ; On                   ;
+; Power-Up Don't Care                                                        ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                               ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                 ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                       ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                     ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                      ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                        ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                  ; Off                  ;
+; Optimization Technique                                                     ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                         ; 70                   ; 70                   ;
+; Auto Carry Chains                                                          ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                       ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                       ; On                   ; On                   ;
+; Auto RAM Replacement                                                       ; On                   ; On                   ;
+; Auto DSP Block Replacement                                                 ; On                   ; On                   ;
+; Auto Shift Register Replacement                                            ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                              ; On                   ; On                   ;
+; Strict RAM Replacement                                                     ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                          ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                     ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                                   ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                      ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                              ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                          ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                    ; On                   ; On                   ;
+; Report Parameter Settings                                                  ; On                   ; On                   ;
+; Report Source Assignments                                                  ; On                   ; On                   ;
+; Report Connectivity Checks                                                 ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                      ; 2                    ; 2                    ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                          ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                            ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                  ; 100                  ;
+; Clock MUX Protection                                                       ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                ; Off                  ; Off                  ;
+; Block Design Naming                                                        ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                  ; Off                  ; Off                  ;
+; Synthesis Effort                                                           ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                         ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                     ; On                   ; On                   ;
+; Synthesis Seed                                                             ; 1                    ; 1                    ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 20     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Tue May 12 14:06:11 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Interfaz_calculadora -c Interfaz_calculadora
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/lpm_mult1.vhd
+    Info (12022): Found design unit 1: mult-SYN File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/lpm_mult1.vhd Line: 53
+    Info (12023): Found entity 1: mult File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/lpm_mult1.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/controlador/controlador_principal.vhd
+    Info (12022): Found design unit 1: controlador_principal-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Controlador/Controlador_principal.vhd Line: 32
+    Info (12023): Found entity 1: controlador_principal File: E:/UNI/3/DD2_2026/Calculadora/hdl/Controlador/Controlador_principal.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/sumadorbcd_6digitos.vhd
+    Info (12022): Found design unit 1: SumadorBCD_6Digitos-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 18
+    Info (12023): Found entity 1: SumadorBCD_6Digitos File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/sumadorbcd_1digito.vhd
+    Info (12022): Found design unit 1: SumadorBCD_1Digito-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 24
+    Info (12023): Found entity 1: SumadorBCD_1Digito File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/conv_bcd_bin.vhd
+    Info (12022): Found design unit 1: Conv_BCD_Bin-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 34
+    Info (12023): Found entity 1: Conv_BCD_Bin File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/Conv_BCD_Bin.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/binariotobcd.vhd
+    Info (12022): Found design unit 1: BinarioToBCD-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 22
+    Info (12023): Found entity 1: BinarioToBCD File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/BinarioToBCD.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/conversor/alu.vhd
+    Info (12022): Found design unit 1: alu_calc-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/ALU.vhd Line: 18
+    Info (12023): Found entity 1: alu_calc File: E:/UNI/3/DD2_2026/Calculadora/hdl/Conversor/ALU.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/displays/displays.vhd
+    Info (12022): Found design unit 1: displays-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Displays/displays.vhd Line: 21
+    Info (12023): Found entity 1: displays File: E:/UNI/3/DD2_2026/Calculadora/hdl/Displays/displays.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/rebotes.vhd
+    Info (12022): Found design unit 1: rebotes-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/rebotes.vhd Line: 13
+    Info (12023): Found entity 1: rebotes File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/rebotes.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/interfaz_teclado.vhd
+    Info (12022): Found design unit 1: interfaz_teclado-estructural File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/interfaz_teclado.vhd Line: 28
+    Info (12023): Found entity 1: interfaz_teclado File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/interfaz_teclado.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/teclado/ctrl_tec.vhd
+    Info (12022): Found design unit 1: ctrl_tec-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/ctrl_tec.vhd Line: 29
+    Info (12023): Found entity 1: ctrl_tec File: E:/UNI/3/DD2_2026/Calculadora/hdl/teclado/ctrl_tec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/timer/timer.vhd
+    Info (12022): Found design unit 1: timer-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Timer/timer.vhd Line: 40
+    Info (12023): Found entity 1: timer File: E:/UNI/3/DD2_2026/Calculadora/hdl/Timer/timer.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /uni/3/dd2_2026/calculadora/hdl/interfaz_calculadora.vhd
+    Info (12022): Found design unit 1: Interfaz_calculadora-rtl File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 37
+    Info (12023): Found entity 1: Interfaz_calculadora File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 5
+Error (10349): VHDL Association List error at Interfaz_calculadora.vhd(96): formal "TICS_2s" does not exist File: E:/UNI/3/DD2_2026/Calculadora/hdl/Interfaz_calculadora.vhd Line: 96
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
+    Error: Peak virtual memory: 4993 megabytes
+    Error: Processing ended: Tue May 12 14:06:19 2026
+    Error: Elapsed time: 00:00:08
+    Error: Total CPU time (on all processors): 00:00:12
+
+
