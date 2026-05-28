@@ -6,11 +6,12 @@ estado.ST_CALCULO 0 1 1
 estado.ST_FIN 1 0 1 
 
 State Machine - |Interfaz_calculadora|controlador_principal:U_CTRL|estado
-Name estado.RES estado.OP2 estado.OP1 estado.STOP 
-estado.STOP 0 0 0 0 
-estado.OP1 0 0 1 1 
-estado.OP2 0 1 0 1 
-estado.RES 1 0 0 1 
+Name estado.ESPERA estado.RES estado.OP2 estado.OP1 estado.STOP 
+estado.STOP 0 0 0 0 0 
+estado.OP1 0 0 0 1 1 
+estado.OP2 0 0 1 0 1 
+estado.RES 0 1 0 0 1 
+estado.ESPERA 1 0 0 0 1 
 
 State Machine - |Interfaz_calculadora|ctrl_tec:U_TECLADO|estado
 Name estado.PULSADO estado.ESCANEO estado.STOP 

@@ -1,14 +1,14 @@
-Fitter Status : Successful - Tue May 19 14:22:14 2026
+Fitter Status : Successful - Tue May 26 13:31:49 2026
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : Interfaz_calculadora
 Top-level Entity Name : Interfaz_calculadora
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 610 / 49,760 ( 1 % )
-    Total combinational functions : 598 / 49,760 ( 1 % )
-    Dedicated logic registers : 208 / 49,760 ( < 1 % )
-Total registers : 208
+Total logic elements : 616 / 49,760 ( 1 % )
+    Total combinational functions : 606 / 49,760 ( 1 % )
+    Dedicated logic registers : 209 / 49,760 ( < 1 % )
+Total registers : 209
 Total pins : 26 / 360 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

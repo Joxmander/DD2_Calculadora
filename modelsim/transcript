@@ -1,4 +1,13 @@
+# Compile of ctrl_tec.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of BinarioToBCD.vhd was successful.
+# Compile of Conv_BCD_Bin.vhd was successful.
+# Compile of mult.vhd was successful.
+# Compile of SumadorBCD_1Digito.vhd was successful.
+# Compile of SumadorBCD_6Digitos.vhd was successful.
 # Compile of Interfaz_calculadora.vhd was successful.
+# Compile of Controlador_principal.vhd failed.
+# Compile of Controlador_principal.vhd failed with 3 errors.
 # Compile of ctrl_tec.vhd was successful.
 # Compile of ALU.vhd was successful.
 # Compile of BinarioToBCD.vhd was successful.
@@ -7,6 +16,7 @@
 # Compile of SumadorBCD_1Digito.vhd was successful.
 # Compile of SumadorBCD_6Digitos.vhd was successful.
 # Compile of Controlador_principal.vhd was successful.
+# Compile of Interfaz_calculadora.vhd failed.
 # Compile of Interfaz_calculadora.vhd was successful.
 # Compile of ctrl_tec.vhd was successful.
 # Compile of ALU.vhd was successful.

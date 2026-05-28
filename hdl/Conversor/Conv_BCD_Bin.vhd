@@ -22,10 +22,10 @@ entity BCDToBinario is
     	nRst          : in 	std_logic;
         -- Operando 1
         op1_bcd : in  std_logic_vector(11 downto 0); -- centenas & decenas & unidades
-        op1_sgn : buffer  std_logic;                      -- 0=positivo, 1=negativo
+        op1_sgn : in  std_logic;                      -- 0=positivo, 1=negativo
         -- Operando 2
         op2_bcd : in  std_logic_vector(11 downto 0);
-        op2_sgn : buffer  std_logic;
+        op2_sgn : in  std_logic;
         -- Salidas en binario complemento a 2
         op1_bin : out std_logic_vector(10 downto 0);  -- rango -999..999
         op2_bin : out std_logic_vector(10 downto 0)

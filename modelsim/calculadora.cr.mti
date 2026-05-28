@@ -1,47 +1,18 @@
 E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/ctrl_tec.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/ctrl_tec.vhd
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:46 on May 19,2026
+Start time: 13:29:14 on May 26,2026
 vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/teclado/ctrl_tec.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity ctrl_tec
 -- Compiling architecture rtl of ctrl_tec
-End time: 14:17:46 on May 19,2026, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:47 on May 19,2026
-vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity SumadorBCD_1Digito
--- Compiling architecture rtl of SumadorBCD_1Digito
-End time: 14:17:47 on May 19,2026, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-
-} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:46 on May 19,2026
-vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd 
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity BinarioToBCD
--- Compiling architecture rtl of BinarioToBCD
--- Loading entity SumadorBCD_6Digitos
-End time: 14:17:46 on May 19,2026, Elapsed time: 0:00:00
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
 } {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:47 on May 19,2026
+Start time: 13:29:14 on May 26,2026
 vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_6Digitos.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -51,12 +22,41 @@ vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-cal
 -- Compiling entity SumadorBCD_6Digitos
 -- Compiling architecture rtl of SumadorBCD_6Digitos
 -- Loading entity SumadorBCD_1Digito
-End time: 14:17:47 on May 19,2026, Elapsed time: 0:00:00
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+Start time: 13:29:14 on May 26,2026
+vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/BinarioToBCD.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity BinarioToBCD
+-- Compiling architecture rtl of BinarioToBCD
+-- Loading entity SumadorBCD_6Digitos
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+Start time: 13:29:14 on May 26,2026
+vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/SumadorBCD_1Digito.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SumadorBCD_1Digito
+-- Compiling architecture rtl of SumadorBCD_1Digito
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
 } {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:46 on May 19,2026
+Start time: 13:29:14 on May 26,2026
 vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Interfaz_calculadora.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -72,13 +72,13 @@ vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-cal
 -- Loading entity alu_calc
 -- Loading entity BinarioToBCD
 -- Loading entity displays
-End time: 14:17:46 on May 19,2026, Elapsed time: 0:00:00
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd
+} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd {1 {vcom -work work -2002 -explicit {E:\UNI\3\DD2_Calculadora-calculadora\hdl\Controlador\Controlador_principal.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:47 on May 19,2026
-vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Controlador/Controlador_principal.vhd 
+Start time: 13:29:14 on May 26,2026
+vcom -reportprogress 300 -work work -2002 -explicit E:\UNI\3\DD2_Calculadora-calculadora\hdl\Controlador\Controlador_principal.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -86,19 +86,48 @@ vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-cal
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity controlador_principal
 -- Compiling architecture rtl of controlador_principal
-End time: 14:17:47 on May 19,2026, Elapsed time: 0:00:00
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+Start time: 13:29:14 on May 26,2026
+vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/Conv_BCD_Bin.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity BCDToBinario
+-- Compiling architecture rtl of BCDToBinario
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+Start time: 13:29:14 on May 26,2026
+vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/ALU.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity alu_calc
+-- Compiling architecture rtl of alu_calc
+-- Loading entity mult
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
 } {} {}} E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd {1 {vcom -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-Start time: 14:17:47 on May 19,2026
+Start time: 13:29:14 on May 26,2026
 vcom -reportprogress 300 -work work -2002 -explicit E:/UNI/3/DD2_Calculadora-calculadora/hdl/Conversor/mult.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity mult
 -- Compiling architecture SYN of mult
-End time: 14:17:47 on May 19,2026, Elapsed time: 0:00:00
+End time: 13:29:14 on May 26,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
 } {} {}}

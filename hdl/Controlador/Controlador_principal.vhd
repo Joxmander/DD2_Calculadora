@@ -34,7 +34,7 @@ signal reg_op1, reg_op2:   std_logic_vector(11 downto 0);
 signal reg_OP: std_logic_vector(1 downto 0); 
 signal reg_pres : std_logic_vector (1 downto 0);
 signal num_bcd:std_logic_vector(23 downto 0);
-type estado_t is (STOP, OP1,OP2,RES);
+type estado_t is (STOP, OP1,OP2,RES,ESPERA);
 signal cnt1,cnt2: std_logic_vector(1 downto 0); --Para qeu no haya mas de 3 nummeros
 
   signal estado : estado_t;
@@ -114,11 +114,16 @@ begin
 		elsif tecla = X"C" then
 			op2_sgn_reg <= not op2_sgn_reg;
 		elsif tecla = X"B" then 
-			inicio_cal <= '1';
-			estado <= RES;
+--			inicio_cal <= '1';
+--			estado <= RES;
+estado <= ESPERA;
 		end if;
 end if;
 
+when ESPERA =>
+		inicio_cal <= '1';
+		estado <= RES;
+	
 		when RES => 
 
 			
@@ -128,24 +133,26 @@ end if;
 				num_bcd <= num_bcd_in;
 				res_sgn <= res_sgn_in;
 
-				reg_op1 <= (others => '0'); 
-				reg_op2 <= (others => '0');
-				op1_sgn_reg <= '0';
-				op2_sgn_reg <= '0';
+
 				
 				elsif  tecla_pulsada = '1' then
  						estado <= OP1;
-					if (tecla >= X"0" and tecla <= X"9") then 
-						if (tecla >= X"0" and tecla <= X"9") then	
-						reg_op1  <= (others => '0');
+					if (tecla >= X"0" and tecla <= X"9") then
+						if (tecla = X"0") then 
+							reg_op1(3 downto 0) <= "0000";
+							cnt1 <= "00";
+							op1_sgn_reg <= '0';
 						else
-						reg_op1(3 downto 0) <= tecla; 
-                    				reg_op1(11 downto 4) <= (others => '0');
-					 	cnt1 <= "01"; -- Ya hemos introducido 1 dï¿½git
-						end if;	
+							reg_op1(3 downto 0) <= tecla; 
+                    			reg_op1(11 downto 4) <= (others => '0');
+							cnt1 <= "01"; -- Ya hemos introducido 1 dï¿½git
+							op1_sgn_reg <= '0';
+						end if;
+	
 					else
 							reg_op1 <= (others => '0');
                     					cnt1 <= "00";
+											op1_sgn_reg <= '0';
 
 					end if;
 				end if;
